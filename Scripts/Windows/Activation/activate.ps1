@@ -32,8 +32,10 @@ function FindKey {
     if ((Get-WmiObject Win32_OperatingSystem).Caption -eq "Microsoft Windows 11 Enterprise" -or "Microsoft Windows 10 Enterprise") {
         $SetKey = "NPPR9-FWDCX-D2C8J-H872K-2YT43"
         ActivationProcess
+
+    } else {
+        Write-Host "[" -NoNewline; Write-Host "!" -ForegroundColor Red -NoNewline; Write-Host "] " -NoNewline; Write-Host "Windows Version could not be determined. Exitting Program."
     }
-    ActivationProcess
 
     function ActivationProcess {
         slmgr /upk
